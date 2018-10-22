@@ -3,11 +3,55 @@ window.onload= function() {
     let maze_g = document.getElementById("maze");
     let hwall = false;
     let win = false;
-    for(let index =0; index< gwall.length-1; index1++){
+    for(let index =0; index< gwall.length-1; index++){
         gwall[index].addEventListener("mouseover", function(){
-             gwall[index].setAttribute('class','boundary youlose');
+            for(index =0; index< gwall.length-1; index++){
+                gwall[index].setAttribute('class','boundary youlose');
+            }
              hwall = true;
         });
+
     }
+
+
+    let sGame =document.getElementById('start');
+    sGame.addEventListener("mouseover", function(){
+        let eGame = document.getElementById("end");
+        eGame.addEventListener("mouseover", function(){
+            if (hwall ===false){
+                let stats = document.getElementById("status");
+                if( stats.innerHTML.search("You Win!")===-1 && stats.innerHTML.search("You Lose!")===-1){
+                    stats.innerHTML = stat.innerHTML + "You Win!";
+                    win = true;
+                }
+            }
+            else{
+                let stats =document.getElementById("status");
+                if(stats.innerHTML.search("You Win!")=== -1 && stats.innerHTML.search("You Lose!")=== -1){
+                    stats.innerHTML = stats.innerHTML +  "You Lose!";
+                }
+            }
+        });
+    });
+    sGame.addEventListener("click", function(){
+        for (let index = 0; index<gwall.length-1; index ++){
+            gwall[index].setAttribute("class","boundary");
+        }
+        if(win ===false){
+            let stats = document.getElementById('status');
+            let lWin = stats.innerHTML = stats.innerHTML.search("You Loose!");
+            if (lWin !== -1){
+                stats.innerHTML =stats.innerHTML.slice(0, lWin);
+            }
+        }else{
+            let stats = documnent.getElementById("status");
+            let lWin =stats.innerHTML.seacrh("You Win!");
+            if(lWin !== -1){
+                stats.innerHTML = stat.innerHTML.slice(0,lWin);
+            }
+        }
+        hwall = false;
+        win = false;
+    });
 
 }
