@@ -1,6 +1,7 @@
 window.onload= function() {
     let gwall= document.querySelectorAll(".boundary");
     let maze_g = document.getElementById("maze");
+    let stats = document.getElementById('status');
     let hwall = false;
     let win = false;
     for(let index =0; index< gwall.length-1; index++){
@@ -9,6 +10,7 @@ window.onload= function() {
                 gwall[index].setAttribute('class','boundary youlose');
             }
              hwall = true;
+             stats.innerHTML = "You Lose!";
         });
 
     }
@@ -19,7 +21,7 @@ window.onload= function() {
         let eGame = document.getElementById("end");
         eGame.addEventListener("mouseover", function(){
             if (hwall === false){
-                alert("You Win!"); 
+                stats.innerHTML = "You Win!";
                 }
             });
         });
@@ -27,9 +29,11 @@ window.onload= function() {
     sGame.addEventListener("click", function(){
         for (let index = 0; index<gwall.length-1; index ++){
             gwall[index].setAttribute("class","boundary");
+            stats.innerHTML = "Move your mouse over the 'S' to begin";
         }
         hwall=false;
         
     });
-
+    
+    
 }
