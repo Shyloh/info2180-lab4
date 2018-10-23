@@ -18,21 +18,13 @@ window.onload= function() {
     sGame.addEventListener("mouseover", function(){
         let eGame = document.getElementById("end");
         eGame.addEventListener("mouseover", function(){
-            if (hwall ===false){
-                let stats = document.getElementById("status");
-                if( stats.innerHTML.search("You Win!")===-1 && stats.innerHTML.search("You Lose!")===-1){
-                    stats.innerHTML = stat.innerHTML + "You Win!";
-                    win = true;
+            if (hwall === false){
+                alert("You Win!");
+                
                 }
-            }
-            else{
-                let stats =document.getElementById("status");
-                if(stats.innerHTML.search("You Win!")=== -1 && stats.innerHTML.search("You Lose!")=== -1){
-                    stats.innerHTML = stats.innerHTML +  "You Lose!";
-                }
-            }
+            });
         });
-    });
+
     sGame.addEventListener("click", function(){
         for (let index = 0; index<gwall.length-1; index ++){
             gwall[index].setAttribute("class","boundary");
